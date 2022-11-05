@@ -1,0 +1,19 @@
+var userName = localStorage.getItem('userName');
+console.log(userName)
+function getCurrentUser() {
+  
+ 
+  try {
+    return JSON.parse(userName);
+  } catch (ex) {
+    return null; // or do some other error handling
+  }
+}
+var saveUser = getCurrentUser();
+if(saveUser){
+  let username = getElementById('userName')
+  username.innerHTML = saveUser.userName
+  console.log(saveUser.userName)
+  
+}
+getCurrentUser()
