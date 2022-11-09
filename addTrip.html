@@ -117,7 +117,7 @@
       </li> 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
+          <i class="bi bi-truck"></i>
           <span>Vehicles</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
@@ -125,7 +125,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
+          <i class="bi bi-cash-stack"></i>
           <span>Rates</span>
         </a>
       </li><!-- End Contact Page Nav -->
@@ -157,24 +157,79 @@
 
         <!-- Left side columns -->
         <div class="col-lg-12">
-          <div class="row">
+          <div class="row ">
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
 
-     
+              <div class="card">
+                <div class="card-body">
+               
                     <h5 class="card-title">Add Trip</h5>
 
-                    <form>
-                        <div class="row">
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Vehicle Name</label>
-                                <div class="col-sm-10">
-                                <input type="text" class="form-control">
-                                </div>
+                    <form class="g-3" method="POST">
+                      <div class="row m-2">
+                            <div class="col">
+                              <label for="validationDefault01" class="form-label">Vehicle Name</label>  
+                              <div class="col-sm" id="divName">
+                                <select class="form-select" id="selectV" aria-label="Default select example" required>
+                                  <option selected>Select Vehicle</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <label for="validationDefault01" class="form-label">Daily Sales</label>
+                              <div class="col-sm">
+                              <input type="Number" id="dailySales" class="form-control" placeholder="Axel Weight" required>
+                              </div>
+                          </div>
+                        </div>
+                        <h5 class="card-title">Expenses</h5>
+                      <div class="row m-4">
+                        <div class="col">
+                          <label for="validationDefault01" class="form-label">Fuel Litre</label>
+                          <div class="rowcol-md-4">
+                            
+                            <div class="col-sm">
+                            <input type="number" id="fuel" class="form-control" placeholder="Fuel Liters" required>
                             </div>
                         </div>
+                        </div>
+                          <div class="col">
+                            <label for="validationDefault01" class="form-label">Axel Weight</label>
+                            <div class="col-sm">
+                            <input type="Number" id="weight" class="form-control" placeholder="Axel Weight" required>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row m-4">
+                        <div class="col">
+                          <label for="validationDefault01" class="form-label">Road Expenses</label>
+                          <div class="col-sm">
+                          <input type="Number" id="road" class="form-control" placeholder="Road Expenses" required>
+                          </div>
+                        </div>
+                          <div class="col"> 
+                            <label for="validationDefault01" class="form-label">Rate Per Tonage</label> 
+                            <div class="col-sm" id="rateDiv">
+                              <select class="form-select" id="rate" aria-label="Default select example" required>
+                                <option selected>Select Rate Per Tonage</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                          <div class="col m-4">
+                            <label for="validationDefault01" class="form-label">Other Expenses</label>
+                            <div class="col-sm">
+                            <input type="Number" id="other" class="form-control" placeholder="Other Expenses" required>
+                            </div> 
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-primary addTrip" type="submit">Add Trip</button>
+                      </div>
                     </form>
-                 
+                  </h5>
+                </div>
+              </div>
             </div>
 
            
@@ -215,7 +270,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="./controllers/dataController.js"></script>
   
  
 </body>
