@@ -66,9 +66,39 @@
 //let dataTable = new DataTable("#myTable");
 
 const user1 = JSON.parse(localStorage.getItem('user'))
+ /*=========RATES========*/
+ 
+ let rateVal = document.querySelector('#ratePerTonnage')
 
-function selectV(vehicleName){
-    const select = document.getElementById('selectV')
+let ratePerTonnage
+let fuelRatePerLitre
+
+ fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/rates`, {
+     headers:{ 
+         'Content-Type': 'application/json',    
+     },
+     })
+     .then((res)=>res.json())
+     .then((data)=>{
+        
+
+        data.map((el)=>{
+            // displayTonnageRate.innerHTML = el.tonnageRate
+            // displayFuelRate.innerHTML = el.fuelRate
+            ratePerTonnage = el.tonnageRate
+            fuelRatePerLitre = el.fuelRate
+            console.log(el.tonnageRate)
+        })   
+        rateVal.value = ratePerTonnage
+        displayTonnageRate.innerHTML = ratePerTonnage
+     })
+
+
+     
+    
+
+function selectV({vehicleName, vehicleType}){
+    const select = document.getElementById('selectValue')
     // create option using DOM
    
 const newOption = document.createElement('option');
@@ -77,46 +107,67 @@ const optionText = document.createTextNode(vehicleName);
 
 newOption.appendChild(optionText);
 
-newOption.setAttribute('option','Option Value');
+newOption.setAttribute('option',vehicleName, 'Value');
+select.addEventListener('change',()=>{
+    let hide = document.getElementById('hideAll')
+    if (vehicleType === "China Truck") {
+        hide.style.display = "none"
+    } else{
+        hide.style.display = "block"
+       
+    }
+})
     // const options = document.createElement('option')
     // select.appendChild(options)
     // select.value = vehicleName
     // options.innerHTML = vehicleName
 }
-fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/records',)
-    .then((response)=>response.json())
-    .then((data)=>{
+
+fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/records',{
+    headers: {
+        'Content-Type':'application/json'
+    },
+})
+.then((response)=>response.json())
+.then((data)=>{
+    console.log(data)
         data.forEach(element => {
-            selectV(element.vehicleName)
-        });
+           
+            
+            selectV({vehicleName: element.vehicleName, vehicleType: element.vehicleType })
+         });
+         
     })
 
+    console.log(totalExpenses)
 
 
-function selectR(rate){
-        const select = document.getElementById('rate')
-        // create option using DOM
+// function selectR(rate){
+//         const select = document.getElementById('rate')
+//         // create option using DOM
        
-    const newOption = document.createElement('option');
-    select.appendChild(newOption)
-    const optionText = document.createTextNode(rate);
+//     const newOption = document.createElement('option');
+//     select.appendChild(newOption)
+//     const optionText = document.createTextNode(rate);
     
-    newOption.appendChild(optionText);
+//     newOption.appendChild(optionText);
     
-    newOption.setAttribute('option','Option Value');
-        // const options = document.createElement('option')
-        // select.appendChild(options)
-        // select.value = vehicleName
-        // options.innerHTML = vehicleName
-    }
-    fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/rates',)
-    .then((response)=>response.json())
-    .then((data)=>{
-        data.forEach(element => {
-            selectV(element.rate)
-        });
-    })
+//     newOption.setAttribute('option','Option Value');
+//         // const options = document.createElement('option')
+//         // select.appendChild(options)
+//         // select.value = vehicleName
+//         // options.innerHTML = vehicleName
+//     }
+    // fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/rates',)
+    // .then((response)=>response.json())
+    // .then((data)=>{
+    //     data.forEach(element => {
+    //         selectV(element.rate)
+    //     });
+    // })
 
+
+    
   function addVehicle() {
     let vehicleName = document.getElementById('vehicleName')
     let vehicleNumber = document.getElementById('vehicleNumber')
@@ -160,117 +211,16 @@ function selectR(rate){
 
     }
 
-//=========EMPLOYEES==========//
-function users(id, username, email, startDate, userId){
-    const tableBody = document.getElementById('tbody')
-    const tableRow = document.createElement('tr')
-
-    tableBody.appendChild(tableRow)
-
-    const tdId = document.createElement('td')
-    const tdUsername = document.createElement('td')
-    const tdEmail = document.createElement('td')
-    const tdStartDate = document.createElement('td')
-    const td4 = document.createElement('td')
-
-    const tdDiv = document.createElement('div')
-    const editIcon = document.createElement('i')
-    const delteIcon = document.createElement('i')
-    const deleteIconLink = document.createElement('a')
-    const editIconLink = document.createElement('a')
-    editIcon.classList.add("bi","bi-pencil", "p-2")
-    delteIcon.classList.add("bi","bi-trash")
-
-    deleteIconLink.appendChild(delteIcon)
-    editIconLink.appendChild(editIcon)
-
-    tdDiv.append(editIconLink,deleteIconLink)    
-    td4.appendChild(tdDiv)
-
-    tdId.innerHTML =id
-    tdUsername.innerHTML = username
-    tdEmail.innerHTML = email
-    tdStartDate.innerHTML = startDate
-
-    tableRow.append(tdId, tdUsername, tdEmail,tdStartDate, td4)
-
-    editIconLink.href = `../users-profile.html?id=${userId}`
 
 
+let btn = document.getElementById('addTrip')
 
-}
-fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/users')
-.then((response) => response.json())
-.then((data) =>{
-    console.log(data);
-    for (let index = 0; index < data.length; index++) {
-       users(
-        index,
-        data[index].username,
-        data[index].email,
-        data[index].createdAt.split('T')[0],
-        userId = data[index]._id
-       )
-        
-    }
-})
-.catch((error) => console.log(error))
-
-
-
-//ADD employees functions
-let addEmployeeBtn = document.getElementById('addEmployeeBtn')
-
- addEmployeeBtn.onclick = function (e){
-    e.preventDefault()
-    let name = document.getElementById('employeeName')
-    let number = document.getElementById('employeeNumber')
-    let email = document.getElementById('employeeEmail')
-    let password = document.getElementById('employeePassword')
-    let confirmPassword = document.getElementById('confirmPassword')
-    let isAdmin = document.getElementById('isAdminChecked').checked
-
-    if (name.value != '' && number.value !='' && email.value !='' ) {
-        if(password.value === confirmPassword.value){
-            const results =  fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/auth/register',{
-                method: 'POST',
-                headers: {
-                    'Content-Type':'application/json'
-                },
-                body: JSON.stringify({
-                    username:name.value,
-                    email:email.value,
-                    number:number.value,
-                    password:password.value,
-                    isAdmin:isAdmin
-                })
-                
-            }).then((res)=>res.json())
-            alert('Sales Person Successfully added')
-            window.location.href = '../dashboard.html'
-        } else{
-            window.alert('Passwords do not match!')
-
-        }
-    } else{
-        alert('All fields are required')
-    }
-}
-
-
-
-
-
-
-/*========END OF EMPLOYEES FUNCTIONS=========*/
-
-let btn = document.querySelector('.addTrip')
-btn.onclick = (e) =>{
-    e.preventDefault()
-    let vehicleName = document.getElementById('selectV').value.trim()
+btn.onclick = function (e){
+  e.preventDefault()
+    let vehicleName = document.getElementById('selectV').value
     let fuel = document.getElementById('fuel').value.trim()
     let weight = document.getElementById('weight').value.trim()
-    let rate = document.getElementById('rate').value.trim()
+    let rate = document.getElementById('ratePerTonnage').value.trim()
     let other = document.getElementById('other').value.trim()
     let dailySales = document.getElementById('dailySales').value.trim()
     let road = document.getElementById('road').value.trim()
@@ -290,6 +240,7 @@ btn.onclick = (e) =>{
         totalExpenses: totalExpenses,
         sales: sales
     }
+    console.log(body)
     fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/trips`, {
         method: 'POST',
         mode: 'cors',
@@ -313,44 +264,5 @@ btn.onclick = (e) =>{
     }
 
 
-//     vehicleNumber: {type: String, required: true},
-    
-//     category:{
-//         type: String,
-//         required: true
-//     },
-//     expenses:{
-//         ratePerTongue:{
-//            type: Number,
-//            default: 0
-//         },
-//         fuel:{
-//             type: Number,
-//             default: 0
-//         },
-//         axelWeight:{
-//             type: Number,
-//             default: 0
-//         },
-//         roadExpenses:{
-//             type: Number,
-//             default:0
-//         },
-//         other:{
-//             type:Number,
-//             default: 0
-//         }
-        
-//     },
-//     totalExpenses:{ 
-//         type: Number,
-//         default: 0
-//     },
-//     dailySales: {
-//         type: Number,
-//         required: true
-//     },
-// sales:{
-//     type: Number,
    
-// }
+
