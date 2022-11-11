@@ -93,8 +93,9 @@ e.preventDefault()
         fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${_id}`,{
         method: 'PATCH',
         Headers: {
-           
-            'Content-Type': 'application/json',    
+            'Accept':'*',
+            'Content-Type': 'application/json',  
+            'token': `Bearer ${user1.accessToken}`,  
         },
         
         body: JSON.stringify({
