@@ -108,12 +108,15 @@ const optionText = document.createTextNode(vehicleName);
 newOption.appendChild(optionText);
 
 newOption.setAttribute('option',vehicleName, 'Value');
-select.addEventListener('change',()=>{
+select.addEventListener('change', ()=>{
+    console.log(vehicleType);
     let hide = document.getElementById('hideAll')
     if (vehicleType === "China Truck") {
+        console.log('this is working')
         hide.style.display = "none"
         rateVal.value = 0;
     } else{
+        console.log('fuck off')
         hide.style.display = "block"
         // rateVal.value = ratePerTonnage
        
@@ -131,11 +134,18 @@ fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/records',{
 })
 .then((response)=>response.json())
 .then((data)=>{
+
     console.log(data)
-        data.forEach(element => {
+        data.map((element) => {
+            
             selectV({vehicleName: element.vehicleName, vehicleType: element.category })
          });
-         
+
+        // for (let index = 0; index < data.length; index++) {
+        //     selectV({vehicleName: data[index].vehicleName, vehicleType: data[index].category })
+            
+        // }
+                 
     })
 
     
