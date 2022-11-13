@@ -96,7 +96,7 @@ let fuelRate
 
 
      
-    
+
 
 function selectV({vehicleName, vehicleType}){
     const select = document.getElementById('selectValue')
@@ -108,24 +108,57 @@ const optionText = document.createTextNode(vehicleName);
 newOption.appendChild(optionText);
 
 newOption.setAttribute('option',vehicleName, 'Value');
-select.addEventListener('change', ()=>{
-    console.log(vehicleType);
-    let hide = document.getElementById('hideAll')
-    if (vehicleType === "China Truck") {
-        console.log('this is working')
-        hide.style.display = "none"
-        rateVal.value = 0;
-    } else{
-        console.log('fuck off')
-        hide.style.display = "block"
-        // rateVal.value = ratePerTonnage
+// select.addEventListener('change', ()=>{
+    
+    
+//     if (vehicleType === "China Truck") {
+//         console.log('this is working')
+//         hide.style.display = "none"
+//         rateVal.value = 0;
+//     } else{
+//         console.log('fuck off')
+//         hide.style.display = "block"
+//         // rateVal.value = ratePerTonnage
        
-    }
-})
+//     }
+// })
+
+}
+let hide = document.getElementById('hideAll')
+//hide.style.display = 'none'
+let vehicleCat  = []
+function selectCat(vehicleCategory, length){
+    const select = document.getElementById('cateValue')
+    // create option using DOM
+const newOption = document.createElement('option');
+select.appendChild(newOption)
+const optionText = document.createTextNode(vehicleCategory);
+
+newOption.appendChild(optionText);
+
+newOption.setAttribute('option',vehicleCategory, 'Value');
+
+    
+    select.addEventListener('change', ()=>{ 
+        for (let i = 0; i < length.length; i++) {
+            console.log(i)
+        if (optionText.contains("China Truck")) {
+            console.log('this is working')
+            hide.style.display = "none"
+            rateVal.value = 0;
+        } else{
+            console.log('fuck off')
+            hide.style.display = "block"
+            // rateVal.value = ratePerTonnage
+        } 
+        }
+    })
 
 
 
 }
+
+
 
 fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/records',{
     headers: {
@@ -135,21 +168,21 @@ fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/records',{
 .then((response)=>response.json())
 .then((data)=>{
 
-    console.log(data)
-        data.map((element) => {
-            
-            selectV({vehicleName: element.vehicleName, vehicleType: element.category })
-         });
-
-        // for (let index = 0; index < data.length; index++) {
-        //     selectV({vehicleName: data[index].vehicleName, vehicleType: data[index].category })
-            
-        // }
-                 
+    
+        for (let index = 0; index < data.length; index++) {
+        
+        vehicleCat.push(data[index].category)
+            selectV({vehicleName: data[index].vehicleName, vehicleType: data[index].category })
+            selectCat(data[index].category, data.length)
+        } 
+               
     })
 
+    console.log(vehicleCat)
     
 
+    
+  
 
 // function selectR(rate){
 //         const select = document.getElementById('rate')

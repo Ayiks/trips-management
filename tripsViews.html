@@ -254,6 +254,9 @@
                   <th class="font-weight-semi-bold border-top-0">
                     Daily sales
                   </th>
+                  <th class="font-weight-semi-bold border-top-0">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody id="tbody"></tbody>
@@ -369,6 +372,7 @@
                     totalExpenses: trip.totalExpenses,
                     sales: trip.sales,
                     dailySales: trip.dailySales,
+                    
                   };
                 })
               ),
@@ -382,6 +386,7 @@
               { data: "totalExpenses" },
               { data: "sales" },
               { data: "dailySales" },
+              
             ],
       }
     );
