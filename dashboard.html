@@ -133,7 +133,7 @@
             </a>
           </li> -->
           <li>
-            <a href="tripsViews.html">
+            <a href="viewAllVehicles.html">
               <i class="bi bi-truck"></i><span>All Vehicles</span>
             </a>
           </li>
@@ -502,13 +502,13 @@
   <script src="http://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
   
-  <script>
-    const user = JSON.parse(localStorage.getItem("user") )  
-    console.log(user);
+  <!-- <script>
+    const user1 = JSON.parse(localStorage.getItem("user") )  
+    // console.log(user);
   fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/trips',
   {
     headers: {
-          token: `Bearer ${user.accessToken}`,
+          token: `Bearer ${user1.accessToken}`,
         }
   }
   )
@@ -672,7 +672,7 @@
 
     // datadisplay();
     
-  </script>
+  </script> -->
 
 <script>
       
@@ -692,27 +692,34 @@ $('#dashboard-table').DataTable(
       
     ...new Set(
             data.map((trip) => {
-              let today = Date.now()
-             return trip.createdAt = today ?
-               {
-                createdAt: trip.createdAt.split('T')[0],
+              let today =new Date()
+              let newDate = today.toISOString()
+              // console.log(`Date: ${newDate.split('T')[0]}`);
+               if (trip.createdAt = newDate){
+                console.log( true);
+               } else{
+                console.log(false);
+               }
+              //  return {
+              //   createdAt: trip.createdAt.split('T')[0],
                 
-                vehicleName: trip.vehicleName,
-                expenses: `<span class="p-1 rounded-pill"> Rate : ${
-                  trip.expenses.ratePerTonnage
-                } </span>, <span class="p-1 rounded-pill">Fuel :${
-                  trip.expenses.fuel
-                }</span>, <span class="p-1 rounded-pill">Axel weight : ${
-                  trip.expenses.axelWeight
-                }</span>, <span class="p-1 rounded-pill">Road Expenses : ${
-                  trip.expenses.roadExpenses
-                }</span>, <span class="p-1 rounded-pill"> Others: ${
-                  trip.expenses.other ? trip.expenses.other : 0
-                }</span>`,
-                totalExpenses: trip.totalExpenses,
-                sales: trip.sales,
-                dailySales: trip.dailySales,
-              } : '<h2> No sales added today-'
+              //   vehicleName: trip.vehicleName,
+              //   expenses: `<span class="p-1 rounded-pill"> Rate : ${
+              //     trip.expenses.ratePerTonnage
+              //   } </span>, <span class="p-1 rounded-pill">Fuel :${
+              //     trip.expenses.fuel
+              //   }</span>, <span class="p-1 rounded-pill">Axel weight : ${
+              //     trip.expenses.axelWeight
+              //   }</span>, <span class="p-1 rounded-pill">Road Expenses : ${
+              //     trip.expenses.roadExpenses
+              //   }</span>, <span class="p-1 rounded-pill"> Others: ${
+              //     trip.expenses.other ? trip.expenses.other : 0
+              //   }</span>`,
+              //   totalExpenses: trip.totalExpenses,
+              //   sales: trip.sales,
+              //   dailySales: trip.dailySales,
+              // }  
+               
             })
           ),
     ],

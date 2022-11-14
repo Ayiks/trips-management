@@ -34,6 +34,27 @@ function users(id, username, email, startDate, userId){
 
     editIconLink.href = `./users-profile.html?id=${userId}`
 
+    deleteIconLink.onclick = function() {
+        let text = "Are you sure you want to delete?!\n OK or Cancel.";
+        
+        if (confirm(text) == true) {
+          try {
+            fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${userId}`, {
+              method: "DELETE",
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            }).then(window.alert("User deleted!"))
+            window.location.reload();
+
+          } catch (error) {
+            window.alert('Failed to Delete: '+ error)
+          }
+       
+        } else {
+        }
+      };
+
 
 
 }
