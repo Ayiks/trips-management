@@ -2,7 +2,7 @@ window.addEventListener('load', function(){
 
     const urlParams = new URLSearchParams(window.location.search)
     const id = urlParams.get('id');
-    var _id;
+   
 
     let usernameValue =document.getElementById('employeeName')
     let emailValue =document.querySelector('#employeeEmail')
@@ -24,7 +24,7 @@ fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${id}`)
 .then(response => response.json())
 .then(data =>{
     console.log(data.username);
-    _id = data._id;
+   
     usernameValue.innerHTML = data.username
     emailValue.innerHTML =data.email
     emailValue.value = data.email
@@ -49,9 +49,9 @@ editButton.onclick = function submit(e){
     // var isChecked=document.getElementById("isChecked").checked
 
     if(editUsername.value != '' && editEmail.value != "" && editPhone.value != ""){
-         fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${_id}`,{
-        method: 'PATCH',
-        Headers: {
+         fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${id}`,{
+        method: 'PUT',
+        headers: {
            
             'Content-Type': 'application/json',    
         },
@@ -67,7 +67,7 @@ editButton.onclick = function submit(e){
         .then((data)=>{
             console.log(data);
             window.alert('Profile Updated')
-            window.location.href = '../users.html'
+            window.location.reload()
 
         })
         .catch((error)=>{
@@ -75,7 +75,7 @@ editButton.onclick = function submit(e){
             window.location.reload()
         })
     } else{
-        window.alert("Passwords do not match")
+        window.alert("Fields are empty")
     }
     }
  
@@ -90,8 +90,8 @@ e.preventDefault()
  }
  else{
     try {
-        fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${_id}`,{
-        method: 'PATCH',
+        fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/users/${id}`,{
+        method: 'PUT',
         Headers: {
             'Accept':'*',
             'Content-Type': 'application/json',  
@@ -105,8 +105,8 @@ e.preventDefault()
     })
     .then((response)=>response.json)
     .then((data)=>{
-        adminSuccesAlert.style.display ="flex"
-        alertMessage.innerHTML = `Previlages updated for ${data.username}` 
+        // adminSuccesAlert.style.display ="flex"
+        // alertMessage.innerHTML = `Previlages updated for ${data.username}` 
         window.reload
     })
     } catch (error) {

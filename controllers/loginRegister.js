@@ -1,6 +1,6 @@
-const btn = document.querySelector(".btn");
+const btnLogin = document.querySelector(".btn");
 
-btn.onclick = async function submit(e) {
+btnLogin.onclick = async function submit(e) {
 e.preventDefault()
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
@@ -26,7 +26,7 @@ e.preventDefault()
         location.href = "./dashboard.html";
       } 
       else if (data.success === true && data.isAdmin !== true) {
-       location.href = "../salesAgent/homepage.html";
+       location.href = "./salesDashboard.html";
      } 
       else {
         alert(data.error.toString());
@@ -36,11 +36,9 @@ e.preventDefault()
       console.log(error);
     });
 
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log(`Username: ${user.username}`);
-let username = document.getElementById("userName");
-username.innerHTML = user.username;
+   
 };
+
 
 
 
@@ -65,16 +63,11 @@ username.innerHTML = user.username;
 //   console.log('no user saved')
 // }
 
-
-
-
-let signOut = document.getElementById('signout')
-
-
-signOut.onclick = function logout() {
+ function logout() {
+  console.log('user')
   window.localStorage.clear();
   window.location.reload(true);
-  window.location.replace('../index.html');
+  window.location.replace('./index.html');
 
 }
 

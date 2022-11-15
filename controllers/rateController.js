@@ -29,7 +29,7 @@ let displayTonnageRate = document.getElementById('displayTonnageRate')
         e.preventDefault()
         if (editTonnageRate.value != "") {
             fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/rates/${id}`,{
-                method: 'PATCH',
+                method: 'PUT',
                 mode: 'cors',
                 headers: {
                     "Access-Control-Allow-Origin": "*",
@@ -66,7 +66,7 @@ let displayTonnageRate = document.getElementById('displayTonnageRate')
 
         if (editFuelRate.value != "") {
             fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/rates/${id}`,{
-                method: 'PATCH',
+                method: 'PUT',
                 mode: 'cors',
                 headers: {
                     "Access-Control-Allow-Origin": "*",
