@@ -435,9 +435,9 @@
         let totalExpense = 0
         let totalRevenue = 0
         let totalSales = 0
-        const expenses = document.getElementById('Expenses')
-        const revenue = document.getElementById('Revenue')
-        const sales = document.getElementById('Sales')
+        let expenses = document.getElementById('Expenses')
+        let revenue = document.getElementById('Revenue')
+        let sales 
         minDate = new DateTime($("#min"), {
           format: "MMMM Do YYYY",
         });
@@ -506,7 +506,12 @@
           var sales = 0;
            sales=table.column( 4 , {search:'applied'} ).data().sum();
            $("#Sales").text((+sales).toLocaleString('en-US'));
-         
+
+           revenue=table.column( 5 , {search:'applied'} ).data().sum();
+           $("#Revenue").text((+revenue).toLocaleString('en-US'));
+
+           expenses=table.column( 3 , {search:'applied'} ).data().sum();
+           $("#Expenses").text((+expenses).toLocaleString('en-US'));
         });
       });
     </script>
