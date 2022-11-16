@@ -37,7 +37,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="dashboard.html" class="logo d-flex align-items-center">
+      <a href="salesDashboard.html" class="logo d-flex align-items-center">
         <img src="assets/img/kayLogo.jpeg" alt="">
         <span class="d-none d-lg-block">KayHans</span>
       </a>
@@ -88,7 +88,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a id="dashboardLink" class="nav-link ">
+        <a href="salesDashboard.html" class="nav-link ">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -98,87 +98,9 @@
 
       <li class="nav-heading">Pages</li>
 
-     <div id="showPanel">
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Trips</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!-- <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li> -->
-          <li>
-            <a href="tripsViews.html">
-              <i class="bi bi-circle"></i><span>All Trips</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Add Trips</span>
-            </a>
-          </li>
-        </ul>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav1" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Vehicles</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!-- <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li> -->
-          <li>
-            <a href="viewAllVehicles.html">
-              <i class="bi bi-truck"></i><span>All Vehicles</span>
-            </a>
-          </li>
-          <li>
-            <a href="addVehicle.html">
-              <i class="bi bi-truck"></i><span>Add Vehicle</span>
-            </a>
-          </li>
-        </ul>
-      </li> 
-     
-      <!-- End F.A.Q Page Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="rates.html">
-          <i class="bi bi-cash-stack"></i>
-          <span>Rates</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav4" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person"></i><span>Employees</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!-- <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li> -->
-          <li>
-            <a href="viewAllEmployees.html">
-              <i class="bi bi-circle"></i><span>All Employees</span>
-            </a>
-          </li>
-          <li>
-            <a href="addEmployee.html">
-              <i class="bi bi-circle"></i><span>Add Employee</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      </div>
+    
        <!-- End Profile Page Nav -->
-       <div class="salesPanel">
+       
         <li class="nav-item">
           <a
             class="nav-link collapsed"
@@ -190,7 +112,7 @@
           </a>
           
         </li>
-       </div>
+      
     </ul>
 
   </aside>
@@ -239,7 +161,7 @@
                               </div>
                           </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-4">
                           <label for="validationDefault01" class="form-label">Vehicle Category</label>  
                           <div class="col-sm" id="divName">
                             <select class="form-select" id="cateValue" aria-label="Default select example">
@@ -358,28 +280,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="./controllers/dataController.js"></script>
-  <script>
-    // const user1 = JSON.parse(localStorage.getItem("user"));
-
-    window.addEventListener("load", function(){
-let hidePanel = document.getElementById("showPanel")
-let salesPanel = document.getElementById("salesPanel")
-let dashboardLink = document.getElementById("dashboardLink")
-hidePanel.style
-if ( user1.isAdmin === true) {
-hidePanel.style.display = "block" 
-salesPanel.style.display = "none"
-dashboardLink.href = `./dashboard.html`
- } 
-  else if (user1.isAdmin !== true) {
-    hidePanel.style.display = "none"
-    salesPanel.style.display = "block"
-    dashboardLink.onclick = function(){
-      location.href = `./salesDashboard.html`
-    }
- } 
-})
-  </script>
+  
   
  
 </body>

@@ -1,197 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>KayHans | View Trips</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-  <title>KayHans | View Trips</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="assets/img/kayLogo.jpeg" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-  <!-- Favicons -->
-  <link href="assets/img/kayLogo.jpeg" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <!-- <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
+    <link
+      rel="stylesheet"
+      href="http://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css"
+    />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <!-- <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="http://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="dashboard.html" class="logo d-flex align-items-center">
+          <img src="assets/img/kayLogo.jpeg" alt="" />
+          <span class="d-none d-lg-block">KayHans</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+      </div>
+      <!-- End Logo -->
 
- 
-</head>
+      <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+          <li class="nav-item dropdown pe-3">
+            <a
+              class="nav-link nav-profile d-flex align-items-center pe-0"
+              href="#"
+              data-bs-toggle="dropdown"
+            >
+              <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">  -->
+              <span
+                class="d-none d-md-block dropdown-toggle ps-2"
+                id="userName"
+              ></span> </a
+            ><!-- End Profile Iamge Icon -->
 
-<body>
+            <ul
+              class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile"
+            >
+              <li class="dropdown-header">
+                <h6 id="userName"></h6>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center"
+                  class="signout"
+                >
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out</span>
+                </a>
+              </li>
+            </ul>
+            <!-- End Profile Dropdown Items -->
+          </li>
+          <!-- End Profile Nav -->
+        </ul>
+      </nav>
+      <!-- End Icons Navigation -->
+    </header>
+    <!-- End Header -->
 
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="dashboard.html" class="logo d-flex align-items-center">
-        <img src="assets/img/kayLogo.jpeg" alt="">
-        <span class="d-none d-lg-block">KayHans</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
+    <!-- ======= Sidebar ======= -->
 
-    
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+      <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">
+            <i class="bi bi-grid"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- End Dashboard Nav -->
 
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
+        <li class="nav-heading">Pages</li>
 
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">  -->
-            <span class="d-none d-md-block dropdown-toggle ps-2" id="userName"></span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6 id="userName"></h6>
-              
-            </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            data-bs-target="#tables-nav"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i class="bi bi-layout-text-window-reverse"></i><span>Trips</span
+            ><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="tables-nav"
+            class="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <!-- <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li> -->
             <li>
-              <hr class="dropdown-divider">
-            </li> 
-
-                    
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" class="signout">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+              <a href="tripsViews.html">
+                <i class="bi bi-circle"></i><span>All Trips</span>
               </a>
             </li>
+            <li>
+              <a href="addTrip.html">
+                <i class="bi bi-circle"></i><span>Add Trips</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            data-bs-target="#tables-nav1"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i class="bi bi-layout-text-window-reverse"></i><span>Vehicles</span
+            ><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="tables-nav1"
+            class="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <!-- <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li> -->
+            <li>
+              <a href="viewAllVehicles.html">
+                <i class="bi bi-truck"></i><span>All Vehicles</span>
+              </a>
+            </li>
+            <li>
+              <a href="addVehicle.html">
+                <i class="bi bi-truck"></i><span>Add Vehicle</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- End F.A.Q Page Nav -->
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="rates.html">
+            <i class="bi bi-cash-stack"></i>
+            <span>Rates</span>
+          </a>
+        </li>
+        <!-- End Contact Page Nav -->
 
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            data-bs-target="#tables-nav4"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i class="bi bi-person"></i><span>Employees</span
+            ><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="tables-nav4"
+            class="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <!-- <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li> -->
+            <li>
+              <a href="viewAllEmployees.html">
+                <i class="bi bi-circle"></i><span>All Employees</span>
+              </a>
+            </li>
+            <li>
+              <a href="addEmployee.html">
+                <i class="bi bi-circle"></i><span>Add Employee</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- End Profile Page Nav -->
       </ul>
-    </nav><!-- End Icons Navigation -->
+    </aside>
+    <!-- End Sidebar-->
 
-  </header><!-- End Header -->
+    <main id="main" class="main">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Trips</h5>
 
-  <!-- ======= Sidebar ======= -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " href="dashboard.html">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-    
-
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Trips</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!-- <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li> -->
-          <li>
-            <a href="tripsViews.html">
-              <i class="bi bi-circle"></i><span>All Trips</span>
-            </a>
-          </li>
-          <li>
-            <a href="addTrip.html">
-              <i class="bi bi-circle"></i><span>Add Trips</span>
-            </a>
-          </li>
-        </ul>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav1" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Vehicles</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!-- <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li> -->
-          <li>
-            <a href="viewAllVehicles.html">
-              <i class="bi bi-truck"></i><span>All Vehicles</span>
-            </a>
-          </li>
-          <li>
-            <a href="addVehicle.html">
-              <i class="bi bi-truck"></i><span>Add Vehicle</span>
-            </a>
-          </li>
-        </ul>
-      </li> 
-      <!-- End F.A.Q Page Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="rates.html">
-          <i class="bi bi-cash-stack"></i>
-          <span>Rates</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav4" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person"></i><span>Employees</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <!-- <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li> -->
-          <li>
-            <a href="viewAllEmployees.html">
-              <i class="bi bi-circle"></i><span>All Employees</span>
-            </a>
-          </li>
-          <li>
-            <a href="addEmployee.html">
-              <i class="bi bi-circle"></i><span>Add Employee</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-       <!-- End Profile Page Nav -->
-    </ul>
-
-  </aside>
-  <!-- End Sidebar-->
-
-
-  <main id="main" class="main">
-   <div class="col-lg-12">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Trips</h5>
-        
-           <!-- <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+            <!-- <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
             <div class="dataTable-top"><div class="dataTable-dropdown">
               <label>
                 <select class="dataTable-selector">
@@ -230,77 +273,107 @@
               </nav>
             </div>
           </div> -->
-          <div class="table-responsive">
-            <table id="dashboard-table" class="display table" data-order="[[ 1, &quot;asc&quot; ]]">
-              <thead>
-                <tr>
-                  <th class="font-weight-semi-bold border-top-0">
-                    Date Created
-                  </th>
-                  
-                  <th class="font-weight-semi-bold border-top-0">
-                    Vehicle Name
-                  </th>
-                  <th class="font-weight-semi-bold border-top-0">
-                    Expenses
-                  </th>
-
-                  <th class="font-weight-semi-bold border-top-0">
-                    Total Expenses
-                  </th>
-                  <th class="font-weight-semi-bold border-top-0">
-                    Sales
-                  </th>
-                  <th class="font-weight-semi-bold border-top-0">
-                    Daily sales
-                  </th>
-                  <th class="font-weight-semi-bold border-top-0">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="tbody"></tbody>
-             
-            </table>
+          <div class="d-flex flex-row">
+            <div class="table-responsive">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Start date:</td>
+                    <td><input type="text" id="min" name="min" /></td>
+                  </tr>
+                  <tr>
+                    <td>End date:</td>
+                    <td><input type="text" id="max" name="max" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            
+            </div>
+            <div class="d-flex flex-row justify-content-sm-between w-50 m-4 h-25">
+            <p> Total Sales: <span id="Sales"></span> </p> 
+            <p> Total Expenses: <span id="Expenses"></span> </p> 
+            <p>Total Revenue: <span id="Revenue"></span> </p>
           </div>
-     
+            </div>
+            <br>
+              <table
+                id="dashboard-table"
+                class="display table"
+                data-order='[[ 1, "asc" ]]'
+              >
+                <thead>
+                  <tr>
+                    <th class="font-weight-semi-bold border-top-0">
+                      Date Created
+                    </th>
+
+                    <th class="font-weight-semi-bold border-top-0">
+                      Vehicle Name
+                    </th>
+                    <th class="font-weight-semi-bold border-top-0">Expenses</th>
+
+                    <th class="font-weight-semi-bold border-top-0">
+                      Total Expenses
+                    </th>
+                    <th class="font-weight-semi-bold border-top-0">Sales</th>
+                    <th class="font-weight-semi-bold border-top-0">
+                      Daily sales
+                    </th>
+                    <!-- <th class="font-weight-semi-bold border-top-0">
+                    Actions
+                  </th> -->
+                  </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </main><!-- End #main -->
+    </main>
+    <!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>KayHans Company Ltd.</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">Ayiks Inc</a>
-    </div>
-  </footer><!-- End Footer -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="copyright">
+        &copy; Copyright <strong><span>KayHans Company Ltd.</span></strong
+        >. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">Ayiks Inc</a>
+      </div>
+    </footer>
+    <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <!-- <script src="assets/vendor/simple-datatables/simple-datatables.js"></script> -->
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="http://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.min.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <!-- <script src="assets/vendor/simple-datatables/simple-datatables.js"></script> -->
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="http://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script src="http://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/1.13.1/api/sum().js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  
-   <!-- 
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- 
     const user1 = JSON.parse(localStorage.getItem('user'))
 
     fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/trips',{
@@ -337,61 +410,105 @@
       })
     </script> -->
     <script>
-      
+      var minDate = document.getElementById("min");
+
+      var maxDate = document.getElementById("max");
+
+      // Custom filtering function which will search data in column four between two values
+      $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+        var min = minDate.val();
+        var max = maxDate.val();
+        var date = new Date(data[0]);
+
+        if (
+          (min === null && max === null) ||
+          (min === null && date <= max) ||
+          (min <= date && max === null) ||
+          (min <= date && date <= max)
+        ) {
+          return true;
+        }
+        return false;
+      });
+
       $(document).ready(async function () {
-        const user = JSON.parse(localStorage.getItem('user'))
-      const res = await fetch("https://kayhans-backend-app.herokuapp.com/vehicleRecords/trips", {
-          headers: {
-            token: `Bearer ${user.accessToken}`,
-          },
+        let totalExpense = 0
+        let totalRevenue = 0
+        let totalSales = 0
+        const expenses = document.getElementById('Expenses')
+        const revenue = document.getElementById('Revenue')
+        const sales = document.getElementById('Sales')
+        minDate = new DateTime($("#min"), {
+          format: "MMMM Do YYYY",
         });
+        maxDate = new DateTime($("#max"), {
+          format: "MMMM Do YYYY",
+        });
+        const user = JSON.parse(localStorage.getItem("user"));
+        const res = await fetch(
+          "https://kayhans-backend-app.herokuapp.com/vehicleRecords/trips",
+          {
+            headers: {
+              token: `Bearer ${user.accessToken}`,
+            },
+          }
+        );
 
         const data = await res.json();
-    $('#dashboard-table').DataTable(
-      {
+        var table = $("#dashboard-table").DataTable({
+          data: [
+            ...new Set(
+              data.map((trip) => {
+                // totalExpense += trip.totalExpenses
+                // totalRevenue += trip.sales
+                // totalSales += trips.dailySales
+                return {
+                  createdAt: trip.createdAt.split("T")[0],
 
-        data: [
-          
-        ...new Set(
-                data.map((trip) => {
-                  return {
-                    createdAt: trip.createdAt.split('T')[0],
-                    
-                    vehicleName: trip.vehicleName,
-                    expenses: `<span class="p-1 rounded-pill"> Rate : ${
-                      trip.expenses.ratePerTonnage
-                    } </span>, <span class="p-1 rounded-pill">Fuel :${
-                      trip.expenses.fuel
-                    }</span>, <span class="p-1 rounded-pill">Axel weight : ${
-                      trip.expenses.axelWeight
-                    }</span>, <span class="p-1 rounded-pill">Road Expenses : ${
-                      trip.expenses.roadExpenses
-                    }</span>, <span class="p-1 rounded-pill"> Others: ${
-                      trip.expenses.other ? trip.expenses.other : 0
-                    }</span>`,
-                    totalExpenses: trip.totalExpenses,
-                    sales: trip.sales,
-                    dailySales: trip.dailySales,
-                    
-                  };
-                })
-              ),
-        ],
+                  vehicleName: trip.vehicleName,
+                  expenses: `<span class="p-1 rounded-pill"> Rate : ${
+                    trip.expenses.ratePerTonnage
+                  } </span>, <span class="p-1 rounded-pill">Fuel :${
+                    trip.expenses.fuel
+                  }</span>, <span class="p-1 rounded-pill">Axel weight : ${
+                    trip.expenses.axelWeight
+                  }</span>, <span class="p-1 rounded-pill">Road Expenses : ${
+                    trip.expenses.roadExpenses
+                  }</span>, <span class="p-1 rounded-pill"> Others: ${
+                    trip.expenses.other ? trip.expenses.other : 0
+                  }</span>`,
+                  totalExpenses: trip.totalExpenses,
+                  sales: trip.sales,
+                  dailySales: trip.dailySales,
+                 };
+              }),
+              // expenses.innerHTML = totalExpense,
+              // revenue.innerHTML = totalRevenue,
+              // sales.innerHTML = totalSales
+              
+            ),
+          ],
 
-        columns: [
-              { data: "createdAt" },
-              
-              { data: "vehicleName" },
-              { data: "expenses" },
-              { data: "totalExpenses" },
-              { data: "sales" },
-              { data: "dailySales" },
-              
-            ],
-      }
-    );
-});
+          columns: [
+            { data: "createdAt" },
+
+            { data: "vehicleName" },
+            { data: "expenses" },
+            { data: "totalExpenses" },
+            { data: "sales" },
+            { data: "dailySales" },
+          ],
+        });
+
+        // Refilter the table
+        $("#min, #max").on("change", function () {
+          table.draw();
+          var sales = 0;
+           sales=table.column( 4 , {search:'applied'} ).data().sum();
+           $("#Sales").text((+sales).toLocaleString('en-US'));
+         
+        });
+      });
     </script>
-</body>
-
+  </body>
 </html>

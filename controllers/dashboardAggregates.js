@@ -105,6 +105,7 @@ fetch("https://kayhans-backend-app.herokuapp.com/vehicleRecords/trips", {
         totalRevenue += index.dailySales;
     }
     });
+   
 
     expenses.innerHTML = totalExpense;
     revenue.innerHTML = totalRevenue;

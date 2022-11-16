@@ -39,7 +39,7 @@ function vehicles({id, vehicleName, vehicleNumber, vehicleColor, vehicleId}){
         if (confirm(text) == true) {
             console.log(vehicleId );
           try {
-           let deleted = fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/records/${vehicleId}`, {
+           fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/records/${vehicleId}`, {
               method: "DELETE",
               headers: {
                 'Content-Type': 'application/json'

@@ -45,7 +45,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
-        <a href="salesDashboard.html" class="logo d-flex align-items-center">
+        <a href="dashboard.html" class="logo d-flex align-items-center">
           <img src="assets/img/kayLogo.jpeg" alt="" />
           <span class="d-none d-lg-block">KayHans</span>
         </a>
@@ -85,7 +85,7 @@
                 >
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
-                </button>
+              </button>
               </li>
             </ul>
             <!-- End Profile Dropdown Items -->
@@ -101,7 +101,7 @@
     <aside id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="salesDashboard.html">
+          <a class="nav-link" href="dashboard.html">
             <i class="bi bi-grid"></i>
             <span>Dashboard</span>
           </a>
@@ -113,14 +113,110 @@
         <li class="nav-item">
           <a
             class="nav-link collapsed"
-           
-            href="salesAddTrip.html"
+            data-bs-target="#tables-nav"
+            data-bs-toggle="collapse"
+            href="#"
           >
-            <i class="bi bi-layout-text-window-reverse"></i><span>Record Trip Sales</span
-            >
+            <i class="bi bi-layout-text-window-reverse"></i><span>Trips</span
+            ><i class="bi bi-chevron-down ms-auto"></i>
           </a>
-          
+          <ul
+            id="tables-nav"
+            class="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <!-- <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li> -->
+            <li>
+              <a href="tripsViews.html">
+                <i class="bi bi-circle"></i><span>All Trips</span>
+              </a>
+            </li>
+            <li>
+              <a href="addTrip.html">
+                <i class="bi bi-circle"></i><span>Add Trips</span>
+              </a>
+            </li>
+          </ul>
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            data-bs-target="#tables-nav1"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i class="bi bi-layout-text-window-reverse"></i><span>Vehicles</span
+            ><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="tables-nav1"
+            class="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <!-- <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li> -->
+            <li>
+              <a href="viewAllVehicles.html">
+                <i class="bi bi-truck"></i><span>All Vehicles</span>
+              </a>
+            </li>
+            <li>
+              <a href="addVehicle.html">
+                <i class="bi bi-truck"></i><span>Add Vehicle</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- End F.A.Q Page Nav -->
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="rates.html">
+            <i class="bi bi-cash-stack"></i>
+            <span>Rates</span>
+          </a>
+        </li>
+        <!-- End Contact Page Nav -->
+
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            data-bs-target="#tables-nav4"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i class="bi bi-person"></i><span>Employees</span
+            ><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="tables-nav4"
+            class="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <!-- <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li> -->
+            <li>
+              <a href="viewAllEmployees.html">
+                <i class="bi bi-circle"></i><span>All Employees</span>
+              </a>
+            </li>
+            <li>
+              <a href="addEmployee.html">
+                <i class="bi bi-circle"></i><span>Add Employee</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- End Profile Page Nav -->
       </ul>
     </aside>
     <!-- End Sidebar-->
@@ -266,34 +362,117 @@
               </div>
               <!-- End Customers Card -->
 
+              <!-- Reports -->
+              <!-- <div class="col-12">
+              <div class="card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                  <div id="reportsChart"></div>
+
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#reportsChart"), {
+                        series: [{
+                          name: 'Sales',
+                          data: [31, 40, 28, 51, 42, 82, 56],
+                        }, {
+                          name: 'Revenue',
+                          data: [11, 32, 45, 32, 34, 52, 41]
+                        }, {
+                          name: 'Customers',
+                          data: [15, 11, 32, 18, 9, 24, 11]
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'area',
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        markers: {
+                          size: 4
+                        },
+                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                        fill: {
+                          type: "gradient",
+                          gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.3,
+                            opacityTo: 0.4,
+                            stops: [0, 90, 100]
+                          }
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          curve: 'smooth',
+                          width: 2
+                        },
+                        xaxis: {
+                          type: 'datetime',
+                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                        },
+                        tooltip: {
+                          x: {
+                            format: 'dd/MM/yy HH:mm'
+                          },
+                        }
+                      }).render();
+                    });
+                  </script>
+                  
+
+                </div>
+
+              </div>
+            </div> -->
+              <!-- End Reports -->
+
               <!-- Recent Sales -->
               <div class="col-12">
                 <div class="card recent-sales overflow-auto">
+                  <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"
+                      ><i class="bi bi-three-dots"></i
+                    ></a>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+                    >
+                      <li class="dropdown-header text-start">
+                        <h6>Filter</h6>
+                      </li>
+
+                      <li><a class="dropdown-item" href="#">Today</a></li>
+                      <li><a class="dropdown-item" href="#">This Month</a></li>
+                      <li><a class="dropdown-item" href="#">This Year</a></li>
+                    </ul>
+                  </div>
+
                   <div class="card-body">
                     <h5 class="card-title">
                       Recent Sales <span>| Today</span>
                     </h5>
 
-                    <!-- <table class="table table-borderless datatable" id="recentTripTable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Truck Number</th>
-                        <th scope="col">Truck Type</th>
-                        <th scope="col">Expenses</th>
-                        <th scope="col">Total Expenses</th>
-                        <th scope="col">daily Sales</th>
-                        <th scope="col">Sales</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                     
-                      
-                    </tbody>
-                  </table> -->
+                    
                     <div class="table-responsive">
                       <table
-                        id="dashboard"
+                        id="dashboard-table"
                         class="display table"
                         data-order='[[ 1, "asc" ]]'
                       >
@@ -321,12 +500,7 @@
                             </th>
                           </tr>
                         </thead>
-                        <tbody id="tbody">
-                          
-                            
-                            
-                          </tr>
-                        </tbody>
+                        <tbody id="tbody"></tbody>
                       </table>
                     </div>
                   </div>
@@ -369,25 +543,24 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="./controllers/loginRegister.js"></script>
-    
+    <script src="./controllers/dashboardAggregates.js"></script>
     <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="http://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <!-- <script src="./controllers/loginRegister.js"></script> -->
-<script src="./controllers/dashboardAggregates.js"></script>
     
     <script>
       function getUser() {
-        const user = JSON.parse(localStorage.getItem("user"));
-        console.log("user : ", user);
-        if (user && user.accessToken !== "") {
-          return true;
-        } else {
-          // location.reload()
-          return window.location.replace("/index.html");
-        }
-      }
-
-      window.addEventListener("load", () => getUser());
-    </script>
+    const user = JSON.parse(localStorage.getItem("user")) 
+    console.log("user : ", user)
+      if (user && user.accessToken !== "") {
+      return true;
+      } else {
+        // location.reload()
+    return  window.location.replace("/index.html")
+    }
+  }
+  
+  window.addEventListener("load",()=>getUser())
+  
+  </script>
   </body>
 </html>
