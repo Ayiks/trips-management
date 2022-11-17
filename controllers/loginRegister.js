@@ -1,13 +1,13 @@
 const btnLogin = document.querySelector(".btn");
 
-btnLogin.onclick = async function submit(e) {
+btnLogin.onclick =  function submit(e) {
 e.preventDefault()
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
 
     
 
-  await fetch("https://kayhans-backend-app.herokuapp.com/vehicleRecords/auth/login", {
+   fetch("https://kayhans-backend-app.herokuapp.com/vehicleRecords/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

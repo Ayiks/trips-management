@@ -21,7 +21,7 @@ function vehicles({id, vehicleName, vehicleNumber, vehicleColor, vehicleId}){
     deleteIconLink.appendChild(delteIcon)
     editIconLink.appendChild(editIcon)
 
-    tdDiv.append(editIconLink,deleteIconLink)    
+    tdDiv.append(editIconLink)    
     td4.appendChild(tdDiv)
 
     tdId.innerHTML =id
@@ -33,28 +33,28 @@ function vehicles({id, vehicleName, vehicleNumber, vehicleColor, vehicleId}){
 
     editIconLink.href = `./editVehicle.html?id=${vehicleId}`
 
-    deleteIconLink.onclick = function() {
-        let text = "Are you sure you want to delete?!\n OK or Cancel.";
+    // deleteIconLink.onclick = function() {
+    //     let text = "Are you sure you want to delete?!\n OK or Cancel.";
         
-        if (confirm(text) == true) { 
-          try {
-           fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/records/${vehicleId}`, {
-              method: "DELETE",
-              headers: {
-                'Content-Type': 'application/json'
-              },
-            }).then(()=>{
-              window.alert("Vehicle deleted!")
-             window.location.reload()
-          })
+    //     if (confirm(text) == true) { 
+    //       try {
+    //        fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/records/${vehicleId}`, {
+    //           method: "DELETE",
+    //           headers: {
+    //             'Content-Type': 'application/json'
+    //           },
+    //         }).then(()=>{
+    //           window.alert("Vehicle deleted!")
+    //          window.location.href = "./dashboard.html"
+    //       })
 
-          } catch (error) {
-            window.alert('Failed to Delete: '+ error)
-          }
+    //       } catch (error) {
+    //         window.alert('Failed to Delete: '+ error)
+    //       }
          
-        } else {
-        }
-      };
+    //     } else {
+    //     }
+    //   };
 
 
 
