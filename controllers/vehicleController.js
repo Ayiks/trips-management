@@ -15,7 +15,7 @@ function vehicles({id, vehicleName, vehicleNumber, vehicleColor, vehicleId}){
     const delteIcon = document.createElement('i')
     const deleteIconLink = document.createElement('a')
     const editIconLink = document.createElement('a')
-    editIcon.classList.add("bi","bi-pencil", "p-2")
+    editIcon.classList.add("bi","bi-pencil", "p-2","edit")
     delteIcon.classList.add("bi","bi-trash")
 
     deleteIconLink.appendChild(delteIcon)
@@ -31,21 +31,22 @@ function vehicles({id, vehicleName, vehicleNumber, vehicleColor, vehicleId}){
 
     tableRow.append(tdId, tdVehicleName, tdVehicleNumber,tdColor, td4)
 
-    editIconLink.href = `./users-profile.html?id=${vehicleId}`
+    editIconLink.href = `./editVehicle.html?id=${vehicleId}`
 
     deleteIconLink.onclick = function() {
         let text = "Are you sure you want to delete?!\n OK or Cancel.";
         
-        if (confirm(text) == true) {
-            console.log(vehicleId );
+        if (confirm(text) == true) { 
           try {
            fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/records/${vehicleId}`, {
               method: "DELETE",
               headers: {
                 'Content-Type': 'application/json'
               },
-            }).then(window.alert("Vehicle deleted!"))
-            window.location.reload();
+            }).then(()=>{
+              window.alert("Vehicle deleted!")
+             window.location.reload()
+          })
 
           } catch (error) {
             window.alert('Failed to Delete: '+ error)
@@ -61,7 +62,7 @@ function vehicles({id, vehicleName, vehicleNumber, vehicleColor, vehicleId}){
 fetch('https://kayhans-backend-app.herokuapp.com/vehicleRecords/records')
 .then((response) => response.json())
 .then((data) =>{
-    console.log(data);
+    
     for (let index = 0; index < data.length; index++) {
        vehicles(
     {   
@@ -96,14 +97,14 @@ addVehicleBtn.onclick = function (e) {
     }
 
     if (vehicleName.value !="") {
-        
+      const user = JSON.parse(localStorage.getItem("user"));
         fetch(`https://kayhans-backend-app.herokuapp.com/vehicleRecords/records`, {
         method: 'POST',
         mode: 'cors',
         headers:{
             'Accept':'*',
             'Content-Type': 'application/json',
-            'token': `Bearer ${user1.accessToken}`,
+            'token': `Bearer ${user.accessToken}`,
         },
         body: JSON.stringify(data)
         })
@@ -120,7 +121,4 @@ addVehicleBtn.onclick = function (e) {
     } else {
         alert('Please fill out all fileds!')
     }
-    
-   
-
-    }
+}

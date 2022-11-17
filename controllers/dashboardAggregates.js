@@ -1,4 +1,3 @@
-console.log("123456789");
 const user = JSON.parse(localStorage.getItem("user"));
 let table = document.getElementById("tbody");
 function tableF({
